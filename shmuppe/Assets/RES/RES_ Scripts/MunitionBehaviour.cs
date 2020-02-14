@@ -6,26 +6,45 @@ public class MunitionBehaviour : MonoBehaviour
 {
     [SerializeField] float speed;
     Rigidbody2D projectileRgb;
+    SpriteRenderer projectileRenderer;
 
 
     void Start()
     {
         projectileRgb = GetComponent<Rigidbody2D>();
         FireBullet();
-        StartCoroutine(TempDestroyer());
+    }
+
+    private void Update()
+    {
+        if (!projectileRenderer.isVisible)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void FireBullet()
     {
         Debug.Log(transform.forward);
-        projectileRgb.velocity = transform.right * speed; 
+        projectileRgb.velocity = transform.up * speed; 
     }
 
-
-    IEnumerator TempDestroyer()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
+        if(collision.tag == "Enemy")
+        {
+            /// <summary>
+            /// 
+            ///     Add code here to deal damages to Enemy
+            /// 
+            /// </summary>
+
+            Destroy(gameObject);
+        }
+        else if(collision.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
