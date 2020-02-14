@@ -13,14 +13,7 @@ public class MunitionBehaviour : MonoBehaviour
     {
         projectileRgb = GetComponent<Rigidbody2D>();
         FireBullet();
-    }
-
-    private void Update()
-    {
-        if (!projectileRenderer.isVisible)
-        {
-            Destroy(gameObject);
-        }
+        StartCoroutine(destroy());
     }
 
     void FireBullet()
@@ -47,4 +40,10 @@ public class MunitionBehaviour : MonoBehaviour
         }
     }
 
+
+    IEnumerator destroy()
+    {
+        yield return new WaitForSeconds(7);
+        Destroy(gameObject);
+    }
 }

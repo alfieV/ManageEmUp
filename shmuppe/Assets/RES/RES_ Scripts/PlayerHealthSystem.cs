@@ -22,10 +22,19 @@ public class PlayerHealthSystem : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Fish")
+        {
+            TakeDmg(1f);
+        }
+    }
+
     void Dead()
     {
         /// <summary>
         /// what happen when he dies
         /// </summary>
+        Destroy(gameObject);
     }
 }

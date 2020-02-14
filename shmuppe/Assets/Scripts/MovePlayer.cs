@@ -43,7 +43,7 @@ public class MovePlayer : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            horizontalInput = -1;
+            horizontalInput = 1;
         }
         else
         {
