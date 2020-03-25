@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class MunitionBehaviour : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] float speed = 0;
     Rigidbody2D projectileRgb;
     SpriteRenderer projectileRenderer;
+    [SerializeField] float lifeTime = 7;
 
 
     void Start()
     {
         projectileRgb = GetComponent<Rigidbody2D>();
         FireBullet();
-        StartCoroutine(destroy());
+        Destroy(gameObject, lifeTime);
     }
 
     void FireBullet()
     {
-        Debug.Log(transform.forward);
-        projectileRgb.velocity = transform.up * speed; 
+        projectileRgb.velocity = transform.up * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
             /// <summary>
             /// 
@@ -34,16 +34,9 @@ public class MunitionBehaviour : MonoBehaviour
 
             Destroy(gameObject);
         }
-        else if(collision.tag == "Obstacle")
+        else if (collision.tag == "Obstacle")
         {
             Destroy(gameObject);
         }
-    }
-
-
-    IEnumerator destroy()
-    {
-        yield return new WaitForSeconds(7);
-        Destroy(gameObject);
     }
 }
