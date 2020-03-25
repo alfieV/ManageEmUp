@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealthSystem : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100;
-    public float currentHealth;
+    [SerializeField] int maxHealth = 100;
+    public int currentHealth;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class PlayerHealthSystem : MonoBehaviour
         }
     }
 
-    public void TakeDmg(float dmg)
+    public void TakeDmg(int dmg)
     {
         currentHealth -= dmg;
 
@@ -34,7 +34,7 @@ public class PlayerHealthSystem : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fish")
         {
-            TakeDmg(1f);
+            TakeDmg(1);
         }
     }
 
