@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ParallelUpdate()
     {
-        Debug.Log(gameOverElement.activeInHierarchy);
         if (gamePause)
         {
             inputEnable = false;
