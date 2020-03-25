@@ -9,7 +9,7 @@ public class MunitionBehaviour : MonoBehaviour
     public Vector2 direction;
     public bool hasDirection = false;
     public bool isPlayerProjectile = true;
-    public float dmg;
+    public int dmg;
     [SerializeField] float lifeTime = 7;
 
 
