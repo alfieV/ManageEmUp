@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2454064960218871902}
   - component: {fileID: 2035065075929220940}
   - component: {fileID: 8893340035589322210}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShootPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928227221471909883, guid: 5de09245e9c2cb54f9015a4d063e63d2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5de09245e9c2cb54f9015a4d063e63d2, type: 3}

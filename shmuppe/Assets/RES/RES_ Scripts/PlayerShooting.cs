@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] GameObject projectile;
-    [SerializeField] float fireRate;
+    [SerializeField] GameObject projectile = null;
+    [SerializeField] float fireRate = 1;
     float timerFireRate;
 
     private void Update()
     {
         if (timerFireRate <= 0)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && GameManager.Instance.inputEnable)
             {
                 Shoot();
             }

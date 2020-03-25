@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    bool paused = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,18 +15,23 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!paused)
+            if (!GameManager.Instance.gamePause)
             {
                 Time.timeScale = 0;
                 transform.GetChild(0).gameObject.SetActive(true);
-                paused = true;
+                GameManager.Instance.gamePause = true;
             }
-            else if (paused)
+            else if (GameManager.Instance.gamePause)
             {
                 Time.timeScale = 1;
                 transform.GetChild(0).gameObject.SetActive(false);
-                paused = false;
+                GameManager.Instance.gamePause = false;
             }
+        }
+        else if(!GameManager.Instance.gamePause && transform.GetChild(0).gameObject.activeInHierarchy)
+        {
+            Time.timeScale = 1;
+            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

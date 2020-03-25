@@ -22,12 +22,12 @@ public class MovePlayer : MonoBehaviour
         //verticalInput = Input.GetAxisRaw("Vertical");
         //horizontalInput = Input.GetAxisRaw("Horizontal");
         
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Z) && GameManager.Instance.inputEnable)
         {
             verticalInput = 1;
 
         }
-        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) && GameManager.Instance.inputEnable)
         {
             verticalInput = -1;
         }
@@ -36,12 +36,12 @@ public class MovePlayer : MonoBehaviour
             verticalInput = 0;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q) && GameManager.Instance.inputEnable)
         {
             horizontalInput = -1;
         }
 
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && GameManager.Instance.inputEnable)
         {
             horizontalInput = 1;
         }

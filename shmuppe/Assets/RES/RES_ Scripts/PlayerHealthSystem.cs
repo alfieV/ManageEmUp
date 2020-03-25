@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class PlayerHealthSystem : MonoBehaviour
 {
-    [SerializeField] float maxHealth;
+    [SerializeField] float maxHealth = 100;
     public float currentHealth;
 
     private void Start()
     {
         currentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        if(currentHealth <= 0)
+        {
+            Dead();
+        }
     }
 
     public void TakeDmg(float dmg)
@@ -32,9 +40,6 @@ public class PlayerHealthSystem : MonoBehaviour
 
     void Dead()
     {
-        /// <summary>
-        /// what happen when he dies
-        /// </summary>
-        Destroy(gameObject);
+        GameManager.Instance.GameOver();
     }
 }
