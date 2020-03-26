@@ -12,6 +12,7 @@ public class BaleineBehaviour : MonoBehaviour
     public float timeToShoot;
     private float timer;
     private bool mustMove = true;
+    public bool activePlayerTarget = true;
     void Start()
     {
         baleineRgb = GetComponent<Rigidbody2D>();
@@ -55,6 +56,13 @@ public class BaleineBehaviour : MonoBehaviour
 
     void Shoot()
     {
+        Vector2 playerDirection = transform.position - player.transform.position;
+
+        if (!activePlayerTarget)
+        {
+            playerDirection = Vector2.zero;
+        }
+
         List<GameObject> shootBullets = new List<GameObject>();
         var bulletCenter = Instantiate(bullet, transform.position, Quaternion.identity); ;
         var bulletLeft = Instantiate(bullet, transform.position, Quaternion.identity); ;
@@ -69,9 +77,9 @@ public class BaleineBehaviour : MonoBehaviour
             shootBullets[i].GetComponent<MunitionBehaviour>().isPlayerProjectile = false;
         }
 
-        bulletCenter.GetComponent<MunitionBehaviour>().direction = new Vector2(0, -1);
-        bulletRight.GetComponent<MunitionBehaviour>().direction = new Vector2(0.7f, -1);
-        bulletLeft.GetComponent<MunitionBehaviour>().direction = new Vector2(-0.7f, -1);
+        bulletCenter.GetComponent<MunitionBehaviour>().direction = new Vector2(0, -1) + playerDirection.normalized *-1;
+        bulletRight.GetComponent<MunitionBehaviour>().direction = new Vector2(0.7f, -1) + playerDirection.normalized * -1;
+        bulletLeft.GetComponent<MunitionBehaviour>().direction = new Vector2(-0.7f, -1) + playerDirection.normalized * -1;
                
     }
 }
