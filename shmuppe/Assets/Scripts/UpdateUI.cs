@@ -25,9 +25,17 @@ public class UpdateUI : MonoBehaviour
         transform.GetChild(0).GetComponent<Text>().text = "Score" + score.ToString();
         hp = plhp.currentHealth;
         life = string.Empty;
-        for (int i = 0; i < hp; i++)
+        
+        if (hp > 99)
         {
-            life = life + heart;
+            life = "+99♥";
+        }
+        else
+        {
+            for (int i = 0; i < hp; i++)
+            {
+                life += heart;
+            }
         }
         transform.GetChild(1).GetComponent<Text>().text = life;
     }
