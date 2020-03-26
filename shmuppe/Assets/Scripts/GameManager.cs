@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] GameObject gameOverElement = null;
+    [SerializeField] GameObject hud = null;
     public bool gamePause;
     public bool inputEnable;
     public bool hideGameOver;
@@ -73,6 +74,15 @@ public class GameManager : MonoBehaviour
         else if(hideGameOver && !gameOverElement.activeInHierarchy)
         {
             hideGameOver = false;
+        }
+
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            hud.SetActive(false);
+        }
+        else
+        {
+            hud.SetActive(true);
         }
 
         yield return new WaitForSeconds(0.0001f);

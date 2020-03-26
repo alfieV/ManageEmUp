@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverElement: {fileID: 7045413085554953394}
+  hud: {fileID: 4361961161905632788}
   gamePause: 0
   inputEnable: 0
   hideGameOver: 0
@@ -438,17 +439,17 @@ PrefabInstance:
     - target: {fileID: 3415685160177572718, guid: 2f5b12bf4d673cd4ab0ce32a6dd9a72a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7295478
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3415685160177572718, guid: 2f5b12bf4d673cd4ab0ce32a6dd9a72a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14760111
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3415685160177572718, guid: 2f5b12bf4d673cd4ab0ce32a6dd9a72a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.78048426
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3415685160177572718, guid: 2f5b12bf4d673cd4ab0ce32a6dd9a72a,
         type: 3}

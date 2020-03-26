@@ -19,24 +19,16 @@ public class UpdateUI : MonoBehaviour
         sco = GameObject.Find("GameManager").GetComponent<ScoreSystem>();
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            if (!isAtributed)
-            {
-                try
-                {
-                    plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
-                    isAtributed = true;
-                }
-                catch
-                {
-                    Debug.Log("waitforstart");
-                }
-            }
-
             score = sco.Score;
             transform.GetChild(0).GetComponent<Text>().text = "Score : " + score.ToString();
             hp = plhp.currentHealth;
@@ -53,7 +45,18 @@ public class UpdateUI : MonoBehaviour
                     life += heart;
                 }
             }
-            transform.GetChild(1).GetComponent<Text>().text = life;
+            transform.GetChild(1).GetComponent<Text>().text = life;           
         }
     }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+        if(GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
+        }        
+    }
+
+    
 }
