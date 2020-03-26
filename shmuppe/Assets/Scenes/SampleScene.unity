@@ -675,11 +675,6 @@ PrefabInstance:
       propertyPath: bulletDamage
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1517365937316318440, guid: 3f23752bb36b8014099eeb60210eee62,
-        type: 3}
-      propertyPath: oneUPValue
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1517755482373482173, guid: 3f23752bb36b8014099eeb60210eee62,
         type: 3}
       propertyPath: m_AnchoredPosition.x

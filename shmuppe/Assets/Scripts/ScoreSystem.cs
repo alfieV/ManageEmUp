@@ -7,9 +7,10 @@ public class ScoreSystem : MonoBehaviour
 {
     [SerializeField]
     private int score = 0;
-
+    [SerializeField]
     private int counter = 1;
     public int oneUPValue;
+    [SerializeField]
     private PlayerHealthSystem plhp;
 
     public int Score
@@ -17,7 +18,7 @@ public class ScoreSystem : MonoBehaviour
         get { return score; }
         set { score = score + value; }
     }
-    void start()
+    void Start()
     {
         plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
     }
@@ -28,6 +29,14 @@ public class ScoreSystem : MonoBehaviour
         {
             plhp.currentHealth++;
             counter++;
+        }
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(GameObject.FindGameObjectsWithTag("Player") != null)
+        {
+            plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
         }
     }
 
