@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
     public void ResetScene()
     {
         hideGameOver = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GetComponent<ScoreSystem>().Reset();
     }
 
     public void GoToMenu()

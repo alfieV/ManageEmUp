@@ -17,15 +17,4 @@ public class ScoreSystem : MonoBehaviour
         score = 0;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

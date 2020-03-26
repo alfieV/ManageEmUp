@@ -5,38 +5,38 @@ using UnityEngine;
 public class BaleineBehaviour : MonoBehaviour
 {
     private Rigidbody2D baleineRgb;
-    private float playerDistance;
-    public float stayDistance;
     private GameObject player;
-    private Vector2 direction;
     public float speed;
     public bool isMoving;
     public GameObject bullet;
     public float timeToShoot;
     private float timer;
+    private bool mustMove = true;
     void Start()
     {
         baleineRgb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        direction = new Vector2(0, 1);
         timer = timeToShoot;
     }
 
     void FixedUpdate()
     {
-        playerDistance = transform.position.y - player.transform.position.y;
-
-        if (Mathf.Abs(playerDistance) > stayDistance + 1)
+        if (mustMove)
         {
-            baleineRgb.velocity = direction * speed * Time.fixedDeltaTime * -1;
-        }
-        else if (Mathf.Abs(playerDistance) < stayDistance - 1)
-        {
-            baleineRgb.velocity = direction * speed * Time.fixedDeltaTime;
+            baleineRgb.velocity = new Vector2(0, -1) * speed * Time.fixedDeltaTime;
         }
         else
         {
             baleineRgb.velocity = Vector2.zero;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("MainCamera"))
+        {
+            mustMove = false;
         }
     }
 
@@ -69,19 +69,9 @@ public class BaleineBehaviour : MonoBehaviour
             shootBullets[i].GetComponent<MunitionBehaviour>().isPlayerProjectile = false;
         }
 
-
-        if(playerDistance > 0)
-        {
-            bulletCenter.GetComponent<MunitionBehaviour>().direction = new Vector2(0, -1);
-            bulletRight.GetComponent<MunitionBehaviour>().direction = new Vector2(0.7f, -1);
-            bulletLeft.GetComponent<MunitionBehaviour>().direction = new Vector2(-0.7f, -1);
-        }
-        else
-        {
-            bulletCenter.GetComponent<MunitionBehaviour>().direction = new Vector2(0, 1);
-            bulletRight.GetComponent<MunitionBehaviour>().direction = new Vector2(0.7f, 1);
-            bulletLeft.GetComponent<MunitionBehaviour>().direction = new Vector2(-0.7f, 1);
-        }
-        
+        bulletCenter.GetComponent<MunitionBehaviour>().direction = new Vector2(0, -1);
+        bulletRight.GetComponent<MunitionBehaviour>().direction = new Vector2(0.7f, -1);
+        bulletLeft.GetComponent<MunitionBehaviour>().direction = new Vector2(-0.7f, -1);
+               
     }
 }
