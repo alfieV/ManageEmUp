@@ -9,6 +9,7 @@ public class MANTA : MonoBehaviour
     private int counter = 1;
     public float speed = 1.25f;
     public float dmg = 10;
+    public bool mustMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class MANTA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove && counter <=11)
+        if (canMove && counter <=11 && !mustMove)
         {
             if (transform.position == ctrl.GetChild(counter).position)
             {
@@ -32,7 +33,19 @@ public class MANTA : MonoBehaviour
                 Debug.Log("moving");
             }
         }
+        else if (mustMove)
+        {
+            transform.parent.Translate(new Vector3(0f, -1f,0f) * Time.deltaTime * speed);
+        }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("MainCamera"))
+        {
+            mustMove = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,7 +55,7 @@ public class MANTA : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealthSystem>().currentHealth -= (int)dmg;
             Destroy(gameObject);
         }
-    }
+    }    
 
     IEnumerator HoldUp()
     {
