@@ -13,6 +13,7 @@ public class BaleineBehaviour : MonoBehaviour
     private float timer;
     private bool mustMove = true;
     public bool activePlayerTarget = true;
+    public float bulletSpeed = 10;
     void Start()
     {
         baleineRgb = GetComponent<Rigidbody2D>();
@@ -75,6 +76,7 @@ public class BaleineBehaviour : MonoBehaviour
         {
             shootBullets[i].GetComponent<MunitionBehaviour>().hasDirection = true;
             shootBullets[i].GetComponent<MunitionBehaviour>().isPlayerProjectile = false;
+            shootBullets[i].GetComponent<MunitionBehaviour>().speed = bulletSpeed;
         }
 
         bulletCenter.GetComponent<MunitionBehaviour>().direction = new Vector2(0, -1) + playerDirection.normalized *-1;

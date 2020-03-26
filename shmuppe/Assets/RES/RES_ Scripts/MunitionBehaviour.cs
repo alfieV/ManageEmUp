@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MunitionBehaviour : MonoBehaviour
 {
-    [SerializeField] float speed = 0;
+    public float speed = 0;
     Rigidbody2D projectileRgb;
     public Vector2 direction;
     public bool hasDirection = false;
@@ -28,7 +28,7 @@ public class MunitionBehaviour : MonoBehaviour
         }
         else
         {
-            projectileRgb.velocity = direction * speed;
+            projectileRgb.velocity = direction.normalized * speed;
         }
         
     }
