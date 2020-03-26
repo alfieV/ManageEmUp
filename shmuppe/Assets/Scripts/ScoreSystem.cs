@@ -27,7 +27,7 @@ public class ScoreSystem : MonoBehaviour
     {
         if (score >counter * oneUPValue)
         {
-            plhp.currentHealth++;
+            plhp.currentHealth+=10;
             counter++;
         }
     }
