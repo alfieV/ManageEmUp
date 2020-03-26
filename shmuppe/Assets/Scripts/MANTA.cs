@@ -8,6 +8,7 @@ public class MANTA : MonoBehaviour
     bool canMove = true;
     private int counter = 1;
     public float speed = 1.25f;
+    public float dmg = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,15 @@ public class MANTA : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealthSystem>().currentHealth -= (int)dmg;
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator HoldUp()
