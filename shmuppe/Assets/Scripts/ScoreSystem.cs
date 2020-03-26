@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreSystem : MonoBehaviour
 {
     private int score = 0;
+    private int counter = 1;
+    public int oneUPValue;
+    private PlayerHealthSystem plhp;
 
     public int Score
     {
@@ -12,9 +16,28 @@ public class ScoreSystem : MonoBehaviour
         set { score = score + value; }
     }
 
+    private void Update()
+    {
+        if (score >counter * oneUPValue)
+        {
+            plhp.currentHealth++;
+            counter++;
+        }
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
+        }
+    }
+
     public void Reset()
     {
         score = 0;
+        counter = 0;
     }
 
 }
