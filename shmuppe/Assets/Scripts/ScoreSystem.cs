@@ -20,17 +20,9 @@ public class ScoreSystem : MonoBehaviour
     {
         if (score >counter * oneUPValue)
         {
+            plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
             plhp.currentHealth++;
             counter++;
-        }
-    }
-
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-
-        if (GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
         }
     }
 
