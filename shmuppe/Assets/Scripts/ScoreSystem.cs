@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ScoreSystem : MonoBehaviour
 {
+    [SerializeField]
     private int score = 0;
+
     private int counter = 1;
     public int oneUPValue;
     private PlayerHealthSystem plhp;
