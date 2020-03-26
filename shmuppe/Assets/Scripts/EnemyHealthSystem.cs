@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
-    public float maxHp;
-    public float currentHp;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int startHealth = 100;
+    public int currentHealth;
+    private ScoreSystem scosy;
+
+    [Range(1,100)]public int points;
+
+    private void Start()
     {
-        currentHp = maxHp;
+        currentHealth = startHealth;
+        scosy = GameObject.Find("GameManager").GetComponent<ScoreSystem>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(currentHp <= 0)
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Dead();
         }
+    }
+
+    void Dead()
+    {
+        scosy.Score = points;
+        Destroy(gameObject);
     }
 }

@@ -40,7 +40,7 @@ public class MunitionBehaviour : MonoBehaviour
         {
             if (collision.tag == "Enemy")
             {
-                collision.transform.root.gameObject.GetComponent<EnemyHealthSystem>().currentHp -= dmg;
+                collision.transform.root.gameObject.GetComponent<EnemyHealthSystem>().currentHealth -= dmg;
 
                 Destroy(gameObject);
             }
