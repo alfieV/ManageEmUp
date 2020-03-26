@@ -55,9 +55,11 @@ public class MunitionBehaviour : MonoBehaviour
             }
         }
         
-        else if (collision.tag == "Obstacle")
+        if (collision.tag == "Obstacle")
         {
             Destroy(gameObject);
         }
+
+
     }
 }
