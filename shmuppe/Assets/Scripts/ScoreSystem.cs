@@ -6,6 +6,13 @@ public class ScoreSystem : MonoBehaviour
 {
     private int score = 0;
 
+    [Range(1, 100)] public int bulletDamage;
+
+    public int BulletDamage
+    {
+        get { return bulletDamage; }
+    }
+
     public int Score
     {
         get { return score; }

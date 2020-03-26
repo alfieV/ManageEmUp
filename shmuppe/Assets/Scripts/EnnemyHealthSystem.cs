@@ -36,7 +36,7 @@ public class EnnemyHealthSystem : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Fish")
+        if (collision.gameObject.tag == "Bullet")
         {
             TakeDmg(1);
         }
