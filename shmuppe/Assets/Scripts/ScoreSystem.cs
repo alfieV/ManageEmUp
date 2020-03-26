@@ -17,12 +17,15 @@ public class ScoreSystem : MonoBehaviour
         get { return score; }
         set { score = score + value; }
     }
+    void start()
+    {
+        plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
+    }
 
     private void Update()
     {
         if (score >counter * oneUPValue)
         {
-            plhp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthSystem>();
             plhp.currentHealth++;
             counter++;
         }
