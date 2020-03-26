@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d38eb21f4fdae4da387990cfb4071b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stayDistance: 5
   speed: 100
   isMoving: 0
   bullet: {fileID: 7565893349829170991, guid: 44611b7628f5ec74ab309b3f6421b9e4, type: 3}
@@ -184,8 +183,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fcb71ef511aec4348ab2381d516ddb4f, type: 3}
-  m_Color: {r: 0.9811321, g: 0, b: 0.87055993, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fe911cfe767fa6347a308d2f4b4c206f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
