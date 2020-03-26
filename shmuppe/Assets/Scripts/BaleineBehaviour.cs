@@ -44,7 +44,7 @@ public class BaleineBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (!isMoving && timer <= 0)
+        if (!isMoving && timer <= 0 && !mustMove)
         {
             Shoot();
             timer = timeToShoot;
